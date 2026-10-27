@@ -8,7 +8,13 @@ Demonstração local em Java 17/Maven/TeaVM 0.16.0, sem servidor, usuários ou d
 
 A candidata local de 45 arquivos teve build Maven/TeaVM aprovado em Windows (JDK 17, Maven 3.10.0, Node 24), 11 verificações JSON aprovadas e smoke tests Playwright/Chromium aprovados em desktop e viewport móvel. **O código completo ainda não foi importado ao repositório**; não há deploy público. Detalhes e limitações: [evidências de validação](docs/VALIDACAO_LOCAL_20261027.md) e [case de portfólio](docs/PORTFOLIO.md).
 
-## Compilar e testar
+## Situação do código neste repositório
+
+> **Atenção:** este repositório ainda **não contém as fontes necessárias para executar o aplicativo**. A `main` possui a documentação inicial; a branch de revisão de portfólio contém somente documentação. Os comandos de compilação abaixo **só funcionam com uma cópia local completa e autorizada**. Não se trata de um download executável do GitHub.
+
+Para conhecer o trabalho sem presumir uma publicação da implementação, consulte [o case de portfólio](docs/PORTFOLIO.md), [o guia de demonstração local](docs/DEMONSTRACAO_LOCAL.md), [a checklist funcional](docs/QA_MANUAL.md) e [os critérios de liberação](docs/CRITERIOS_LIBERACAO.md).
+
+## Compilar e testar (somente na candidata completa local)
 
 Instale Node.js 24 e JDK 17 e Maven 3.10.0. Execute `node scripts/build.mjs`. O script executa os testes e gera dist/ e hashes em artifacts/. `--offline` usa dependências já obtidas. `python3 scripts/security_scan.py --history` verifica os arquivos selecionados e histórico alcançável por padrões limitados.
 
