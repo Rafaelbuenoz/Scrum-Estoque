@@ -4,7 +4,17 @@ Projeto Java independente, extraído da NOXBO e preparado para revisão. A inter
 
 Demonstração local em Java 17/Maven/TeaVM 0.16.0, sem servidor, usuários ou dados reais. Não é um backend de estoque multiusuário.
 
-## Compilar e testar
+## Estado de validação (27/10/2026)
+
+A candidata local de 45 arquivos teve build Maven/TeaVM aprovado em Windows (JDK 17, Maven 3.10.0, Node 24), 11 verificações JSON aprovadas e smoke tests Playwright/Chromium aprovados em desktop e viewport móvel. **O código completo ainda não foi importado ao repositório**; não há deploy público. Detalhes e limitações: [evidências de validação](docs/VALIDACAO_LOCAL_20261027.md) e [case de portfólio](docs/PORTFOLIO.md).
+
+## Situação do código neste repositório
+
+> **Atenção:** este repositório ainda **não contém as fontes necessárias para executar o aplicativo**. A `main` possui a documentação inicial; a branch de revisão de portfólio contém somente documentação. Os comandos de compilação abaixo **só funcionam com uma cópia local completa e autorizada**. Não se trata de um download executável do GitHub.
+
+Para conhecer o trabalho sem presumir uma publicação da implementação, consulte [o case de portfólio](docs/PORTFOLIO.md), [o guia de demonstração local](docs/DEMONSTRACAO_LOCAL.md), [a checklist funcional](docs/QA_MANUAL.md) e [os critérios de liberação](docs/CRITERIOS_LIBERACAO.md).
+
+## Compilar e testar (somente na candidata completa local)
 
 Instale Node.js 24 e JDK 17 e Maven 3.10.0. Execute `node scripts/build.mjs`. O script executa os testes e gera dist/ e hashes em artifacts/. `--offline` usa dependências já obtidas. `python3 scripts/security_scan.py --history` verifica os arquivos selecionados e histórico alcançável por padrões limitados.
 
@@ -22,7 +32,7 @@ A CI possui matriz Linux/Windows preparada, com Actions fixadas em commits e che
 
 No Windows, defina `MAVEN_HOME` para a pasta da distribuição Maven e mantenha `java.exe` no PATH (ou defina `JAVA_BIN`). O script usa o launcher Java Classworlds oficial, evitando shell e problemas com `.cmd`, espaços e caracteres especiais. Em Linux, `MAVEN_HOME` também pode ser usado; sem ele, `MAVEN_BIN` seleciona um executável Maven. O launcher direto não interpreta `MAVEN_OPTS`, `MAVEN_ARGS` ou opções de shell. Não coloque senhas nessas variáveis nem em arquivos versionados.
 
-O launcher foi usado em um build Linux real e seus argumentos Windows foram testados; isso não equivale a um build nativo Windows. A CI Windows está preparada para localizar a instalação do Maven no runner.
+O launcher já foi exercitado em build local Windows com JDK 17, Maven 3.10.0 e Node 24, aprovado em 27/10/2026. A CI Windows está preparada para localizar a instalação do Maven no runner, mas ainda não foi executada neste repositório.
 
 Saída estática: `dist/index.html`, módulo Java/TeaVM, interface, fontes e avisos de terceiros. Esses arquivos são gerados e entregues separadamente no pacote de revisão; Maven, JARs de build, caches e `target/` não entram nas fontes a publicar.
 
